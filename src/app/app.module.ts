@@ -19,29 +19,29 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
   console.log(message);
 }
 
-// export function MSALInstanceFactory(): IPublicClientApplication {
-//   return new PublicClientApplication({
-//     auth: {
-//       // clientId: '6226576d-37e9-49eb-b201-ec1eeb0029b6', // Prod enviroment. Uncomment to use. 
-//       clientId: '94e88e8e-0545-4618-8f5d-3fcd2a13856d', // PPE testing environment
-//       authority: 'https://login.microsoftonline.com/9652d7c2-1ccf-4940-8151-4a92bd474ed0', // Prod environment. Uncomment to use.
-//       //authority: 'https://login.windows-ppe.net/common', // PPE testing environment.
-//       redirectUri: 'https://TRUCKS-eu-web-ReliabilityWeibullProd.azurewebsites.net/.auth/login/aad/callback',
-//       postLogoutRedirectUri: '/'
-//     },
-//     cache: {
-//       cacheLocation: BrowserCacheLocation.LocalStorage,
-//       storeAuthStateInCookie: isIE, // set to true for IE 11. Remove this line to use Angular Universal
-//     },
-//     system: {
-//       loggerOptions: {
-//         loggerCallback,
-//         logLevel: LogLevel.Info,
-//         piiLoggingEnabled: false
-//       }
-//     }
-//   });
-// }
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      // clientId: 'ce9dc6b0-7234-4ac1-996a-31da603611fa', // Prod enviroment. Uncomment to use. 
+      clientId: 'ce9dc6b0-7234-4ac1-996a-31da603611fa', // PPE testing environment
+      authority: 'https://login.microsoftonline.com/1b19c4ec-4080-43ea-b363-e39c87cbe849', // Prod environment. Uncomment to use.
+      //authority: 'https://login.windows-ppe.net/common', // PPE testing environment.
+      redirectUri: 'https://ravifrontend.azurewebsites.net',
+      postLogoutRedirectUri: '/'
+    },
+    cache: {
+      cacheLocation: BrowserCacheLocation.LocalStorage,
+      storeAuthStateInCookie: isIE, // set to true for IE 11. Remove this line to use Angular Universal
+    },
+    system: {
+      loggerOptions: {
+        loggerCallback,
+        logLevel: LogLevel.Info,
+        piiLoggingEnabled: false
+      }
+    }
+  });
+}
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
