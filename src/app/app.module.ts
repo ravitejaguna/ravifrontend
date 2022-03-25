@@ -47,7 +47,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   // protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']); // Prod environment. Uncomment to use.
   //protectedResourceMap.set('https://graph.microsoft-ppe.com/v1.0/me', ['user.read']);
-  protectedResourceMap.set('https://ravitejapython.azurewebsites.net/home', ['api://7806939f-59cf-4622-8c63-c9b6cd60a324/user_impersonation']);
+  protectedResourceMap.set('https://ravibackend.azurewebsites.net', ['api://9de5ab27-bffe-4705-b4b4-f6f22ce7ddb2/user_impersonation']);
 
   return {
     interactionType: InteractionType.Redirect,
@@ -80,9 +80,9 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     MsalModule.forRoot(
       new PublicClientApplication({
         auth: {
-          clientId: '466f7921-37dc-4619-8e76-1f7694408564',
-          authority: 'https://login.microsoftonline.com/b819f575-8b84-4bab-9f62-d6d3f09d03af',
-          redirectUri: 'https://ravitejanodejs.azurewebsites.net',
+          clientId: 'ce9dc6b0-7234-4ac1-996a-31da603611fa',
+          authority: 'https://login.microsoftonline.com/1b19c4ec-4080-43ea-b363-e39c87cbe849',
+          redirectUri: 'https://ravifrontend.azurewebsites.net',
         },
         cache: {
           cacheLocation: 'localStorage',
@@ -92,7 +92,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
       {
         interactionType: InteractionType.Redirect, // MSAL Guard Configuration
         authRequest: {
-          scopes: ['api://7806939f-59cf-4622-8c63-c9b6cd60a324/user_impersonation'],
+          scopes: ['api://9de5ab27-bffe-4705-b4b4-f6f22ce7ddb2/user_impersonation'],
         },
       },
       {
